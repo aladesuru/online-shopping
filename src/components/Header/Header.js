@@ -4,13 +4,13 @@ import React from "react";
 import Icon from "../Icon";
 import icon from "../../assets/images/basket-icon.svg";
 
-const Header = ({ totalItemInBasket }) => {
+const Header = ({ totalItemInBasket, toggleVisibility }) => {
   return (
     <header className="header">
       <div className="container">
         <div className="header-content">
           Simple fashion
-          <div className="icon-wrapper">
+          <div className="icon-wrapper" onClick={toggleVisibility}>
             <span className="basket-icon">
               <Icon url={icon} alt="icon" />
             </span>

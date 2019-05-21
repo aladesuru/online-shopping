@@ -62,7 +62,7 @@ header .icon-wrapper {
   float: right;
   position: relative;
   cursor: pointer;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 .header .badges {

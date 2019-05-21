@@ -7,7 +7,7 @@ import ProductList from "./components/ProductCardList";
 import UpdateBasket from "./components/UpdateBasket";
 // import DeliveryCharges from "./components/DeliveryCharges";
 // import TotalCost from "./components/TotalCost";
-// import SideBar from "./components/SideBar";
+import SideBar from "./components/SideBar";
 
 const data = [
   {
@@ -67,14 +67,14 @@ class App extends Component {
         units: 1
       }
     ],
-    toggleSidebar: false
+    isVisible: false
   };
 
   toggleVisibility = () => {
     this.setState(prevState => ({
       isVisible: !prevState.isVisible
     }));
-    console.log(this.state.toggleSidebar);
+    console.log(this.state.isVisible);
   };
 
   handleAddItemToBasket = product => {
@@ -99,7 +99,7 @@ class App extends Component {
         basket: [...this.state.basket, product]
       });
     }
-    console.log(this.state.basket);
+    console.log(existingPropduct);
   };
 
   // handleToggleSidebar = () => {
@@ -116,10 +116,17 @@ class App extends Component {
     return (
       <div className="app">
         <Header
-          onClick={this.toggleVisibility}
+          toggleVisibility={this.toggleVisibility}
           totalItemInBasket={this.state.basket}
         />
-        {/* {this.state.toggleSidebar ? <SideBar /> : ""} */}
+        {this.state.isVisible ? (
+          <SideBar
+            toggleVisibility={this.toggleVisibility}
+            totalItemInBasket={this.state.basket}
+          />
+        ) : (
+          ""
+        )}
         <UpdateBasket basket={this.state.basket} />
         <ProductList
           product={product}

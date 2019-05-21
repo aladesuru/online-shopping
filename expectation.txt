@@ -1,0 +1,17 @@
+
+Simple​ ​Fashion​ ​has​ ​decided​ ​to​ ​open​ ​a​n​ ​online​ ​shop.​ ​
+Each​ ​product​ ​has​ ​a corresponding​ ​product​ ​code​ ​and​ ​price. 
+You​ ​can​ ​retrieve​ ​these​ ​products​ from the data json file. 
+For a limited time only the delivery cost is free.
+
+Expectations:
+- Product listing page​ ​to​ ​browse​ ​products​
+- Header to show the basket amount
+- Sidebar to show the basket
+- Ability​ ​to​ ​add/remove​ ​products​ ​to/from​ ​basket
+Requirements
+- Use​ ​React​ ​to​ ​implement​ ​your​ ​solution​ ​(feel​ ​free​ ​to​ ​use​ ​any​ ​additional packages​ ​you’d​ ​like)
+- Make​ ​your​ ​design​ ​responsive​ ​(mobile​ ​first)
+- Implement the ui animations included. There is a video and the source file is from Principle
+- Keep​ ​your​ ​code​ ​tidy​ ​and​ ​maintainable,​ ​we​ ​are​ ​looking​ ​for​ ​quality​ ​tested code​ ​over​ ​quantity
+- The implentation should consider that the delivery cost might change in the future
