@@ -1,0 +1,299 @@
+/***********************************************/
+/* Normalisation opinionated
+/************************************************/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/***********************************************/
+/* base styling 
+/************************************************/
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+  color: #928e8e;
+}
+img {
+  width: 100%;
+}
+
+.basket-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-color: #000;
+}
+.app {
+  position: relative;
+  /* height: 100%;
+  width: 100vh; */
+}
+/***********************************************/
+/* container styling 
+/************************************************/
+.container {
+  width: 100%;
+  margin: auto;
+}
+@media all and (min-width: 769px) {
+  .container {
+    width: 80%;
+  }
+}
+/***********************************************/
+/* Headers Component styling 
+/************************************************/
+.header {
+  color: #fff;
+  background-color: #000;
+  padding: 20px 2%;
+}
+.header .header-content {
+  font-size: 1.125em;
+  font-weight: 500;
+  text-align: center;
+  line-height: 30px;
+}
+header .icon-wrapper {
+  float: right;
+  position: relative;
+  cursor: pointer;
+  outline: 1px solid red;
+}
+
+.header .badges {
+  position: absolute;
+  bottom: 0;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 2px;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  font-size: 10px;
+}
+@media all and (min-width: 769px) {
+  .header .header-content {
+    font-size: 1.5em;
+  }
+}
+/***********************************************/
+/* Productcard Component styling 
+/************************************************/
+.product-container {
+  /* outline: 1px solid red; */
+  color: #444;
+  margin-bottom: 40px;
+  text-align: right;
+}
+.product-content-image {
+  width: 100%;
+  height: auto;
+  /* outline: 1px solid red; */
+}
+.product-detail {
+  width: 80%;
+}
+.product-detail span:last-child {
+  color: #65bfa3;
+  padding: 5px;
+}
+.product-detail span:first-child {
+  color: #c0c0c0;
+}
+.product-content-image-footer {
+  margin-top: -5px;
+}
+.product-content-image-footer .icon {
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  text-align: center;
+  padding-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+@media all and (min-width: 769px) {
+  .product-detail {
+    width: 70%;
+  }
+}
+/***********************************************/
+/* Productcard list Component styling 
+/************************************************/
+.propduct-card-list {
+  width: 100%;
+}
+.propduct-card-list-container h2 {
+  margin: 20px;
+  text-align: center;
+}
+@media all and (min-width: 769px) {
+  .propduct-card-list {
+    width: 29.3333333%;
+    margin: 0 2%;
+  }
+}
+/***********************************************/
+/* UpdateBasket Component styling #4bb695 #505050
+/************************************************/
+.updatebasket-container {
+  background-color: #363636;
+  color: #fff;
+}
+.update-basket-content {
+  background-color: #333232;
+}
+.update-basket-detail-image {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 10px;
+  overflow: hidden;
+}
+.update-basket-detail,
+.update-basket-counter {
+  vertical-align: middle;
+  /* outline: 1px solid red; */
+}
+.update-basket-detail {
+  width: 70%;
+}
+.update-basket-content-price,
+.update-basket-counter {
+  margin-top: 10px;
+}
+.update-basket-content-price {
+  font-size: 0.75em;
+  word-break: keep-all;
+  word-wrap: break-word;
+  vertical-align: middle;
+}
+.update-basket-counter {
+  text-align: right;
+  width: 30%;
+  /* outline: 1px solid red; */
+}
+.update-basket-content-price span:last-child {
+  color: #65bfa3;
+}
+.increment,
+.decrement,
+.point {
+  margin: 0 4%;
+}
+.increment,
+.decrement {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #505050;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.89);
+}
+.delivery-charges {
+  background-color: #363636;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+@media all and (min-width: 769px) {
+  .update-basket-content-price,
+  .update-basket-counter {
+    /* margin-top: 25px; */
+    /* outline: 1px solid red; */
+  }
+}
+
+/***********************************************/
+/* TotalCost Component styling #4bb695 #505050
+/************************************************/
+.total-cost-container {
+  text-align: center;
+  margin-top: 10px;
+}
+.total-cost-container h2,
+.total-cost-container p,
+.total-cost-container button {
+  margin: 10px 0;
+  font-size: 1.125em;
+  color: #fff;
+}
+.total-cost-container h2 {
+  color: #f5f5f5;
+}
+.total-cost-container p {
+  font-size: 1.25em;
+}
+.total-cost-container button {
+  outline: none;
+  border: none;
+  background-color: #4bb695;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/***********************************************/
+/* SideBar Component styling #4bb695 #505050
+/************************************************/
+.modal,
+.modal-content-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.modal h2 {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.modal-content-container {
+  background-color: #222222;
+}
+
+@media all and (min-width: 769px) {
+  .modal-content-container {
+    width: 70%;
+    left: 30%;
+  }
+}
+/***********************************************/
+/* heleper class
+/************************************************/
+.display-inline {
+  display: inline-block;
+  vertical-align: top;
+}
+.clearfix::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.p-absolute {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 90%;
+  height: 100%;
+}
+
+@media all and (min-width: 769px) {
+  .font-face {
+    font-size: 0.875em;
+    font-weight: bold;
+  }
+}
