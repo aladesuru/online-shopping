@@ -5,31 +5,24 @@ import PropTypes from "prop-types";
 import Image from "../Image";
 import icon from "../../assets/images/basket-icon.svg";
 
-const ProductCard = ({
-  productCode,
-  productName,
-  productImage,
-  productPrice,
-  handleAddItemToBasket
-}) => {
+const ProductCard = ({ code, name, image, price, handleAddItemToBasket }) => {
   const payLoad = {
-    productCode,
-    productName,
-    productImage,
-    productPrice,
+    code,
+    name,
+    image,
+    price,
     units: 1
   };
   return (
     <div className="product-container">
       <div className="product-content">
         <div className="product-content-image display-inline">
-          <Image url={productImage} alt="product image" />
+          <Image url={image} alt="product image" />
         </div>
         <div className="product-content-image-footer">
           <div className="product-detail display-inline">
-            {productName} <span>{`(${productCode})`}</span>
-            <br />{" "}
-            <span className="price-font-face">&pound; {productPrice}</span>
+            {name} <span>{`(${code})`}</span>
+            <br /> <span className="price-font-face">&pound; {price}</span>
           </div>
           <div
             className="icon display-inline"
@@ -45,9 +38,9 @@ const ProductCard = ({
   );
 };
 ProductCard.propTypes = {
-  productName: PropTypes.string.isRequired,
-  productPrice: PropTypes.string.isRequired,
-  productCode: PropTypes.string.isRequired,
-  productImage: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 };
 export default ProductCard;

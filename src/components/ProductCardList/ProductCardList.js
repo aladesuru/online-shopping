@@ -17,10 +17,10 @@ const ProductList = ({ product, handleAddItemToBasket }) => {
               key={product.code}
             >
               <ProductCard
-                productName={product.name}
-                productImage={product.image}
-                productPrice={product.price}
-                productCode={product.code}
+                name={product.name}
+                image={product.image}
+                price={product.price}
+                code={product.code}
                 handleAddItemToBasket={handleAddItemToBasket}
               />
             </div>

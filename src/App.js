@@ -77,14 +77,14 @@ class App extends Component {
   };
 
   handleAddItemToBasket = product => {
-    const exists = this.state.basket.filter(p => p.code === product.productCode);
-    // console.log
-    if (exists) {
-      const existingProduct = this.state.basket.filter(
-        p => p.code === product.productCode
-      );
+    const existingProduct = this.state.basket.filter(
+      p => p.code === product.code
+    );
+    // console.log(existingProduct);
+
+    if (existingProduct.length > 0) {
       const withoutExistingProduct = this.state.basket.filter(
-        p => p.code !== product.productCode
+        p => p.code !== product.code
       );
       const updateUnitsProduct = {
         ...existingProduct[0],
@@ -97,7 +97,7 @@ class App extends Component {
     } else {
       console.log(product);
       this.setState({
-        basket: this.state.basket.concat(product)
+        basket: [...this.state.basket, product]
       });
     }
   };
