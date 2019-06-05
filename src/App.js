@@ -74,45 +74,35 @@ class App extends Component {
     this.setState(prevState => ({
       isVisible: !prevState.isVisible
     }));
-    console.log(this.state.isVisible);
   };
 
   handleAddItemToBasket = product => {
-    // console.log(product);
-    const existingPropduct = this.state.basket.filter(
-      p => p.code === product.productCode
-    );
-    if (existingPropduct.length > 0) {
+    const exists = this.state.basket.filter(p => p.code === product.productCode);
+    // console.log
+    if (exists) {
+      const existingProduct = this.state.basket.filter(
+        p => p.code === product.productCode
+      );
       const withoutExistingProduct = this.state.basket.filter(
         p => p.code !== product.productCode
       );
       const updateUnitsProduct = {
-        ...existingPropduct[0],
-        units: existingPropduct[0].units + product.units
+        ...existingProduct[0],
+        units: existingProduct[0].units + product.units
       };
 
       this.setState({
         basket: [...withoutExistingProduct, updateUnitsProduct]
       });
     } else {
+      console.log(product);
       this.setState({
-        basket: [...this.state.basket, product]
+        basket: this.state.basket.concat(product)
       });
     }
-    console.log(existingPropduct);
   };
 
-  // handleToggleSidebar = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       toggleSidebar: !prevState.toggleSidebar
-  //     };
-  //   });
-  //   console.log(this.state.toggleSidebar);
-  // };
-
   render() {
-    const { product } = this.state;
     return (
       <div className="app">
         <Header
@@ -129,7 +119,7 @@ class App extends Component {
         )}
         <UpdateBasket basket={this.state.basket} />
         <ProductList
-          product={product}
+          product={this.state.product}
           handleAddItemToBasket={this.handleAddItemToBasket}
         />
       </div>

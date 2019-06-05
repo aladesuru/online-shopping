@@ -7,6 +7,7 @@ import TotalCost from "../TotalCost";
 import DeliveryCharges from "../DeliveryCharges";
 
 const UpdateBasket = ({ basket }) => {
+  // console.log(props.basket);
   return (
     <div className="updatebasket-container clearfix">
       {basket.map((item, index) => {
@@ -30,11 +31,11 @@ const UpdateBasket = ({ basket }) => {
                 <span className="decrement">+</span>
               </div>
             </div>
-            <DeliveryCharges />
-            <TotalCost unitPrice={item.price} units={item.units} />
           </div>
         );
       })}
+      <DeliveryCharges />
+      <TotalCost />
     </div>
   );
 };

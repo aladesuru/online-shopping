@@ -6,12 +6,19 @@ import Image from "../Image";
 import icon from "../../assets/images/basket-icon.svg";
 
 const ProductCard = ({
-  productName,
   productCode,
-  productPrice,
+  productName,
   productImage,
+  productPrice,
   handleAddItemToBasket
 }) => {
+  const payLoad = {
+    productCode,
+    productName,
+    productImage,
+    productPrice,
+    units: 1
+  };
   return (
     <div className="product-container">
       <div className="product-content">
@@ -26,15 +33,7 @@ const ProductCard = ({
           </div>
           <div
             className="icon display-inline"
-            onClick={() =>
-              handleAddItemToBasket({
-                productName,
-                productCode,
-                productPrice,
-                productImage,
-                units: 1
-              })
-            }
+            onClick={() => handleAddItemToBasket(payLoad)}
           >
             <span className="basket-icon">
               <Image url={icon} alt="icon" />
