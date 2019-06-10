@@ -6,11 +6,10 @@ import Image from "../Image";
 import TotalCost from "../TotalCost";
 import DeliveryCharges from "../DeliveryCharges";
 
-const UpdateBasket = ({ basket }) => {
-  // console.log(props.basket);
+const UpdateBasket = ({ basket , updateProductUnit }) => {
   return (
     <div className="updatebasket-container clearfix">
-      {basket.map((item, index) => {
+      {basket.map((item , index) => {
         return (
           <div key={index}>
             <div className="update-basket-content">
@@ -26,22 +25,23 @@ const UpdateBasket = ({ basket }) => {
               </div>
 
               <div className="update-basket-counter display-inline">
-                <span className="increment">-</span>
+                <span className="decrement" onClick={() => updateProductUnit(index , -1)}>-</span>
                 <span className="point">{item.units}</span>
-                <span className="decrement">+</span>
+                <span className="increment" onClick={() => updateProductUnit(index , 1)}>+</span>
               </div>
             </div>
           </div>
         );
       })}
       <DeliveryCharges />
-      <TotalCost />
     </div>
   );
 };
 
 UpdateBasket.propTypes = {
-  basket: PropTypes.arrayOf(PropTypes.object).isRequired
+  basket: PropTypes.arrayOf(PropTypes.object).isRequired,
+  updateProductUnit: PropTypes.func
+
 };
 
 export default UpdateBasket;

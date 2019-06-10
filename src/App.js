@@ -75,6 +75,21 @@ class App extends Component {
       isVisible: !prevState.isVisible
     }));
   };
+  
+  updateProductUnit = (index , payload) => {
+    this.setState(prevState => {
+      if (prevState.basket[index].units === 0 && payload === -1){
+        return{
+          units : 0
+        }
+      }else{
+        return{
+          units : prevState.basket[index].units += payload
+        }
+      }
+     
+    })
+  }
 
   handleAddItemToBasket = product => {
     const existingProduct = this.state.basket.filter(
@@ -113,11 +128,12 @@ class App extends Component {
           <SideBar
             toggleVisibility={this.toggleVisibility}
             totalItemInBasket={this.state.basket}
+            basket={this.state.basket} 
+            updateProductUnit={this.updateProductUnit}
           />
         ) : (
           ""
         )}
-        <UpdateBasket basket={this.state.basket} />
         <ProductList
           product={this.state.product}
           handleAddItemToBasket={this.handleAddItemToBasket}
