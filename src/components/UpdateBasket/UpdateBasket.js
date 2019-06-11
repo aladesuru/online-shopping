@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Image from "../Image";
-
-import TotalCost from "../TotalCost";
 import DeliveryCharges from "../DeliveryCharges";
 
 const UpdateBasket = ({ basket , updateProductUnit }) => {

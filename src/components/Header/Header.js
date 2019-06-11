@@ -4,7 +4,7 @@ import React from "react";
 import Icon from "../Icon";
 import icon from "../../assets/images/basket-icon.svg";
 
-const Header = ({ totalItemInBasket, toggleVisibility }) => {
+const Header = ({ basket, toggleVisibility }) => {
   return (
     <header className="header">
       <div className="container">
@@ -14,7 +14,7 @@ const Header = ({ totalItemInBasket, toggleVisibility }) => {
             <span className="basket-icon">
               <Icon url={icon} alt="icon" />
             </span>
-            <span className="badges">{totalItemInBasket.length}</span>
+            <span className="badges">{basket.length}</span>
           </div>
         </div>
       </div>

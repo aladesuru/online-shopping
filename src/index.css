@@ -188,10 +188,10 @@ header .icon-wrapper {
 .decrement,
 .point {
   margin: 0 4%;
+  display: inline-block;
 }
 .increment,
 .decrement {
-  display: inline-block;
   width: 30px;
   height: 30px;
   line-height: 30px;
@@ -209,11 +209,7 @@ header .icon-wrapper {
 }
 
 @media all and (min-width: 769px) {
-  .update-basket-content-price,
-  .update-basket-counter {
-    /* margin-top: 25px; */
-    /* outline: 1px solid red; */
-  }
+  
 }
 
 /***********************************************/

@@ -3,10 +3,6 @@ import React, { Component } from "react";
 //imported components
 import Header from "./components/Header";
 import ProductList from "./components/ProductCardList";
-// import ProductCard from "./components/ProductCard";
-import UpdateBasket from "./components/UpdateBasket";
-// import DeliveryCharges from "./components/DeliveryCharges";
-// import TotalCost from "./components/TotalCost";
 import SideBar from "./components/SideBar";
 
 const data = [
@@ -91,6 +87,7 @@ class App extends Component {
     })
   }
 
+
   handleAddItemToBasket = product => {
     const existingProduct = this.state.basket.filter(
       p => p.code === product.code
@@ -122,7 +119,7 @@ class App extends Component {
       <div className="app">
         <Header
           toggleVisibility={this.toggleVisibility}
-          totalItemInBasket={this.state.basket}
+          basket={this.state.basket}
         />
         {this.state.isVisible ? (
           <SideBar
