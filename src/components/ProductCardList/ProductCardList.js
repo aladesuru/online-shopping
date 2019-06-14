@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
+import {connect} from 'react-redux';
 
 // import components
 
 import ProductCard from "../ProductCard";
 
-const ProductList = ({ product, handleAddItemToBasket }) => {
+const ProductList = ({ product}) => {
   return (
     <div className="container id=product-list">
       <div className="propduct-card-list-container">
@@ -21,7 +21,6 @@ const ProductList = ({ product, handleAddItemToBasket }) => {
                 image={product.image}
                 price={product.price}
                 code={product.code}
-                handleAddItemToBasket={handleAddItemToBasket}
               />
             </div>
           );
@@ -31,9 +30,10 @@ const ProductList = ({ product, handleAddItemToBasket }) => {
   );
 };
 
-ProductList.propTypes = {
-  product: PropTypes.arrayOf(PropTypes.object).isRequired,
-  handleAddItemToBasket: PropTypes.func.isRequired
-};
+const mapStateToProps = (state) => {
+  return{
+    product: state.data
+  }
+}
 
-export default ProductList;
+export default connect(mapStateToProps)(ProductList);
