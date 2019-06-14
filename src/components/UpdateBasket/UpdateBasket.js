@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from 'react-redux';
 
 import Image from "../Image";
 import DeliveryCharges from "../DeliveryCharges";
 
-const UpdateBasket = ({ basket , updateProductUnit }) => {
+const UpdateBasket = ({ basket , updatetUnitPrice }) => {
   return (
     <div className="updatebasket-container clearfix">
       {basket.map((item , index) => {
@@ -23,9 +24,9 @@ const UpdateBasket = ({ basket , updateProductUnit }) => {
               </div>
 
               <div className="update-basket-counter display-inline">
-                <span className="decrement" onClick={() => updateProductUnit(index , -1)}>-</span>
+                <span className="decrement" onClick={() => updatetUnitPrice(index , -1)}>-</span>
                 <span className="point">{item.units}</span>
-                <span className="increment" onClick={() => updateProductUnit(index , 1)}>+</span>
+                <span className="increment" onClick={() => updatetUnitPrice(index , 1)}>+</span>
               </div>
             </div>
           </div>
@@ -37,9 +38,18 @@ const UpdateBasket = ({ basket , updateProductUnit }) => {
 };
 
 UpdateBasket.propTypes = {
-  basket: PropTypes.arrayOf(PropTypes.object).isRequired,
   updateProductUnit: PropTypes.func
-
 };
 
-export default UpdateBasket;
+const mapStateToProps = (state) => {
+  return{
+    basket: state.basket
+  }
+}
+
+const mapDisPatchToProps = (dispatch) => {
+  return{
+    updatetUnitPrice: (index , payload) => { dispatch({type: 'UPDATE_UNIT_PRICE' , index , payload})}
+  }
+}
+export default connect(mapStateToProps , mapDisPatchToProps)(UpdateBasket);
