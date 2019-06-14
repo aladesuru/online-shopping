@@ -1,10 +1,11 @@
 import React from "react";
+import {connect} from 'react-redux';
 
 //imported components
 import Icon from "../Icon";
 import icon from "../../assets/images/basket-icon.svg";
 
-const Header = ({ basket, toggleVisibility }) => {
+const Header = ({ basket , toggleVisibility }) => {
   return (
     <header className="header">
       <div className="container">
@@ -22,4 +23,9 @@ const Header = ({ basket, toggleVisibility }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return{
+    basket: state.basket
+  }
+}
+export default connect(mapStateToProps)(Header);
