@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from 'react-redux';
 
 //imported components
 import Image from "../Image";
 import icon from "../../assets/images/basket-icon.svg";
 
-const ProductCard = ({ code, name, image, price, handleAddItemToBasket }) => {
+const ProductCard = ({ code, name, image, price, handleAddItemToBasket}) => {
   const payLoad = {
     code,
     name,
@@ -13,6 +14,11 @@ const ProductCard = ({ code, name, image, price, handleAddItemToBasket }) => {
     price,
     units: 1
   };
+
+  const handleClick = () => {
+    handleAddItemToBasket(payLoad);
+  }
+
   return (
     <div className="product-container">
       <div className="product-content">
@@ -26,7 +32,7 @@ const ProductCard = ({ code, name, image, price, handleAddItemToBasket }) => {
           </div>
           <div
             className="icon display-inline"
-            onClick={() => handleAddItemToBasket(payLoad)}
+            onClick={handleClick}
           >
             <span className="basket-icon">
               <Image url={icon} alt="icon" />
@@ -43,4 +49,17 @@ ProductCard.propTypes = {
   code: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired
 };
-export default ProductCard;
+
+
+const mapStateToProps = (state) => {
+  return{
+    basket: state.basket
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    handleAddItemToBasket: (payLoad) => { dispatch( { type: 'ADD_ITEM_TO-BASKET' , payLoad } ) }
+  }
+}
+export default connect(mapStateToProps , mapDispatchToProps)(ProductCard);
