@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { connect } from 'react-redux';
 
 const TotalCost = ({ basket }) => {
   const totalCost= basket.reduce((total ,value) => {
@@ -16,7 +16,9 @@ const TotalCost = ({ basket }) => {
   );
 };
 
-TotalCost.propTypes = {
-  basket: PropTypes.arrayOf(PropTypes.object).isRequired
-};
-export default TotalCost;
+const mapStateToProps = (state) => {
+  return{
+    basket: state.basket
+  }
+}
+export default connect(mapStateToProps)(TotalCost);
