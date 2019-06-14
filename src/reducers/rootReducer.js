@@ -84,7 +84,7 @@ const rootReducer = (state = initState , actions) => {
           if(index === actions.index){
             return{
               ...item,
-              units: item.units === 0 && actions.payload === -1 ? 0 : item.units + actions.payload
+              units: item.units === 0 && actions.payLoad === -1 ? 0 : item.units + actions.payLoad
             }
           }
           return item 

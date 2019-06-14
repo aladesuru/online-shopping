@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from 'react-redux';
+import {addItemToBasketAction} from '../../actionCreators/actions.js';
 
 //imported components
 import Image from "../Image";
@@ -59,7 +60,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    handleAddItemToBasket: (payLoad) => { dispatch( { type: 'ADD_ITEM_TO-BASKET' , payLoad } ) }
+    handleAddItemToBasket: (payLoad) => { dispatch(addItemToBasketAction(payLoad)) }
   }
 }
 export default connect(mapStateToProps , mapDispatchToProps)(ProductCard);

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
+import { updatetUnitPriceAction } from '../../actionCreators/actions.js';
 
 import Image from "../Image";
 import DeliveryCharges from "../DeliveryCharges";
@@ -49,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDisPatchToProps = (dispatch) => {
   return{
-    updatetUnitPrice: (index , payload) => { dispatch({type: 'UPDATE_UNIT_PRICE' , index , payload})}
+    updatetUnitPrice: (index , payLoad) => { dispatch(updatetUnitPriceAction(index , payLoad))}
   }
 }
 export default connect(mapStateToProps , mapDisPatchToProps)(UpdateBasket);
